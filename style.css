@@ -18,6 +18,14 @@ header.topLogo {
   display: table-row;
 
 }
+h1 {
+  font-size: 120%;
+  text-align: center;
+  color: #102ec5
+}
+section#intro {
+  text-align: center;
+}
 section#memberInfo {
   display:table-cell;
 
@@ -27,7 +35,7 @@ section#memberInfo {
 }
 section#OrganisationInfo {
   display: table-cell;
-  
+
   font-size: 100%;
   padding: 0px;
   vertical-align: top;
