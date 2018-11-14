@@ -1,0 +1,34 @@
+body {
+  background-color: #FFFFFF;
+  font-family: Georgia, Times,serif;
+  font-size: small;
+  margin: 0px;
+}
+header.topLogo {
+  background-color: #148cfb;
+  margin: 0px 0px 0px 0px;
+  height: 108px;
+}
+#tableContainer {
+  display: table;
+  border-spacing: 10px;
+
+}
+#tableRow {
+  display: table-row;
+
+}
+section#memberInfo {
+  display:table-cell;
+
+  font-size: 100%;
+  vertical-align: top;
+  width: 50%;
+}
+section#OrganisationInfo {
+  display: table-cell;
+  
+  font-size: 100%;
+  padding: 0px;
+  vertical-align: top;
+}
