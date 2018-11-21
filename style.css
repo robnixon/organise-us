@@ -18,6 +18,11 @@ header.topLogo {
   display: table-row;
 
 }
+header.topLogo img#logo {
+  float: left;
+  height: 110px;
+  width: 190px;
+}
 h1#mainTitle {
   font-size: 250%;
   color: white;
