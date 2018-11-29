@@ -6,6 +6,7 @@ from .models import Post
 class PostAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['post_text']}),
+        (None, {'fields': ['user']}),
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
     ]
     list_display = ('post_text', 'pub_date')

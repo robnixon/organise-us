@@ -10,3 +10,8 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         """Return the list of posts."""
         return Post.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
+
+
+class DetailView(generic.DetailView):
+    model = Post
+    template_name = 'social/detail.html'
