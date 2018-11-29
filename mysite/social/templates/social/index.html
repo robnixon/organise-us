@@ -2,6 +2,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'social/style.css' %}">
 
 
+<form method="get" action="{% url 'social:new_post' %}">
+    <button type="submit">New post</button>
+</form>
 {% if latest_post_list %}
 <ul>
     {% for post in latest_post_list %}

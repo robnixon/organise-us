@@ -3,6 +3,6 @@
 
 
 <p>{{ post.post_text }}</p>
-<p style="font-size: 14px">Posted by {{post.user.username}}</p>
+<p style="font-size: 14px">Posted by {{post.user.username}} at {{post.pub_date}}.</p>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}

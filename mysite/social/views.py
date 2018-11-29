@@ -15,3 +15,8 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Post
     template_name = 'social/detail.html'
+
+
+class PostCreate(generic.CreateView):
+    model = Post
+    fields = ['post_text', 'user']
