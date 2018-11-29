@@ -1,5 +1,8 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'social/style.css' %}">
 
 
-<h1>{{ post.post_text }}</h1>
+<p>{{ post.post_text }}</p>
+<p style="font-size: 14px">Posted by {{post.user.username}}</p>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
