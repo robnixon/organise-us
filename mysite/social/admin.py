@@ -7,8 +7,11 @@ class PostAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['post_text']}),
         (None, {'fields': ['user']}),
-        ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
+        ('Date information', {'fields': ['pub_date']}),
     ]
+
+    readonly_fields = ('pub_date',)
+
     list_display = ('post_text', 'pub_date')
     list_filter = ['pub_date']
     search_fields = ['post_text']

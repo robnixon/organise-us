@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'social/style.css' %}">
+
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% include 'social/form_template.html' %}
+    <button type="submit">Post</button>
+</form>
+
