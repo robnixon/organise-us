@@ -1,3 +1,4 @@
+from django.forms import forms
 from django.utils import timezone
 from django.views import generic
 from .models import Post
@@ -20,3 +21,9 @@ class DetailView(generic.DetailView):
 class PostCreate(generic.CreateView):
     model = Post
     fields = ['post_text', 'user']
+
+    class Meta:
+        model = Post
+        widgets = {
+            'post_text': forms.Textarea(attrs={'rows': 4, 'cols': 15}),
+        }

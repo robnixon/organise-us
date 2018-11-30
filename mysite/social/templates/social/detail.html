@@ -1,8 +1,10 @@
 {% extends 'social/base.html' %}
 {% block content %}
 
-<p>{{ post.post_text }}</p>
-<p style="font-size: 14px">Posted by {{post.user.username}} at {{post.pub_date}}</p>
+<div class="card">
+    <div class="card-body lead">{{ post.post_text }}</div>
+</div>
+<p class="float-right"><em>Posted by {{post.user.username}} on {{post.pub_date}}</em></p>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
