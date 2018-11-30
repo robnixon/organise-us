@@ -1,8 +1,9 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'social/style.css' %}">
-
+{% extends 'social/base.html' %}
+{% block content %}
 
 <p>{{ post.post_text }}</p>
-<p style="font-size: 14px">Posted by {{post.user.username}} at {{post.pub_date}}.</p>
+<p style="font-size: 14px">Posted by {{post.user.username}} at {{post.pub_date}}</p>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% endblock %}

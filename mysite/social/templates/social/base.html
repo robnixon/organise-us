@@ -1,0 +1,40 @@
+{% load static %}
+
+<html>
+<head>
+    <title>Organise Us</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'social/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'social/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+    <style>
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+<div class="page-header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    <a href="/"><img src="../../static/social/images/logo-transparent-light.png" alt="Organise Us" style="max-width:200px"></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            <br>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

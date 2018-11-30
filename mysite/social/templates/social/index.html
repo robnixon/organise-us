@@ -1,6 +1,5 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'social/style.css' %}">
-
+{% extends 'social/base.html' %}
+{% block content %}
 
 <form method="get" action="{% url 'social:new_post' %}">
     <button type="submit">New post</button>
@@ -9,9 +8,11 @@
 {% if latest_post_list %}
 <ul>
     {% for post in latest_post_list %}
-    <li><a href="{% url 'social:detail' post.id %}">{{ post.post_text }}</a></li>
+    <a href="{% url 'social:detail' post.id %}">{{ post.post_text }}</a><br>
     {% endfor %}
 </ul>
 {% else %}
 <p>No posts are available.</p>
 {% endif %}
+
+{% endblock %}

@@ -1,6 +1,5 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'social/style.css' %}">
-
+{% extends 'social/base.html' %}
+{% block content %}
 
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -8,3 +7,4 @@
     <button type="submit">Post</button>
 </form>
 
+{% endblock %}
