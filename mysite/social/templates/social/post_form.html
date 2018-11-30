@@ -1,6 +1,7 @@
 {% extends 'social/base.html' %}
 {% block content %}
 
+<h1>New post</h1>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {% include 'social/form_template.html' %}

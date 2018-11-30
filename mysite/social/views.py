@@ -1,4 +1,4 @@
-from django.forms import forms
+from django import forms
 from django.utils import timezone
 from django.views import generic
 from .models import Post
@@ -22,8 +22,7 @@ class PostCreate(generic.CreateView):
     model = Post
     fields = ['post_text', 'user']
 
-    class Meta:
-        model = Post
-        widgets = {
-            'post_text': forms.Textarea(attrs={'rows': 4, 'cols': 15}),
-        }
+    def get_form(self, form_class=None):
+        form = super(PostCreate, self).get_form(form_class)
+        form.fields['post_text'].widget = forms.Textarea()
+        return form
