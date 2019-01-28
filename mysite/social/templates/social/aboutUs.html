@@ -1,35 +1,20 @@
+{% extends 'social/base.html' %}
 {% load static %}
+{% block content %}
 
-<html>
-<head>
-    <title>
-        About Us
-    </title>
-    <link rel="stylesheet" type="text/css" href="{% static 'social/about-style.css' %}">
-</head>
-<body>
-<header class="topLogo">
-    <a href="/"><img id="logo" src="../../static/social/images/logo-whitebackground.jpg" alt="Organise-Us Logo"></a>
+<link rel="stylesheet" type="text/css" href="{% static 'social/about-style.css' %}">
 
-    <h1 id="mainTitle"> Organise-Us </h1>
-</header>
-<nav>
-    <ul>
-        <li class="buttons"><a href="/">Home</a></li>
-    </ul>
-</nav>
-<div id="tableContainer">
-    <div id="tableRow">
-        <h1 id="get2know">Get to Know us </h1>
+<div class="tableContainer">
+    <div class="tableRow">
+        <h1>Get to know us</h1>
         <section id="intro">
-            <p>Introducing Organise-Us<br> An application that allows you to join, maintain and recieve information
-                about organisations that matter to you
-            </p>
+            <p>Introducing Organise-Us<br> An application that allows you to join, maintain and receive information
+                about organisations that matter to you</p>
         </section>
     </div>
 </div>
-<div id="tableContainer">
-    <div id="tableRow">
+<div class="tableContainer">
+    <div class="tableRow">
         <section id="memberInfo">
             <h1> Members </h1>
             <h2> What can Organise-Us do for me? </h2>
@@ -54,10 +39,7 @@
                 </li>
 
             </ul>
-
-
         </section>
-
     </div>
 </div>
 <div id="tableContainer">
@@ -104,8 +86,4 @@
         </section>
     </div>
 </div>
-
-
-</body>
-
-</html>
+{% endblock %}

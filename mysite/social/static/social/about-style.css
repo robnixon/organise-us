@@ -1,29 +1,11 @@
-body {
-  background-color: #FFFFFF;
-  font-family: Georgia, Times,serif;
-  font-size: small;
-  margin: 0px;
-  display:inline-block;
-  vertical-align:middle;
-}
-header.topLogo {
-  background-color: #148cfb;
-  margin: 0px 0px 0px 0px;
-  height: 108px;
-}
-#tableContainer {
+.tableContainer {
   display: table;
   border-spacing: 10px;
 
 }
-#tableRow {
+.tableRow {
   display: table-row;
 
-}
-header.topLogo img#logo {
-  float: left;
-  height: 110px;
-  width: 190px;
 }
 h1#mainTitle {
   font-size: 250%;
@@ -36,14 +18,10 @@ h1 {
   font-size: 120%;
   text-align: center;
   color: #102ec5;
-  
-  
-
 }
 section#intro {
   text-align: center;
   padding-top:40px;
-  padding-left:420
 }
 section#memberInfo {
   display:table-cell;
@@ -59,17 +37,7 @@ section#OrganisationInfo {
   vertical-align: top;
     border-style:outset;
 }
-#get2know{
-     text-align:center;
-    padding-bottom:200px;
-    width:200px;
-    position:absolute;
-    padding-left: 42%;
 
-   
-    
-    
-}
 section#robertNixon{
     display:table-cell;
     padding-top:70px;
@@ -152,7 +120,6 @@ section#abelTom{
     width: 45px;
     font-family:sans-serif;
     font-size:15px;
-    font-weight: ;
     padding:5px;
     border: 1px solid black;
     position:relative;
