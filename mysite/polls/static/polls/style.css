@@ -1,0 +1,11 @@
+* {
+    font-family: sans-serif;
+}
+
+li a {
+    color: green;
+}
+
+body {
+    background: white url("images/circuit.png") repeat;
+}

@@ -1,0 +1,18 @@
+{% extends 'social/base.html' %}
+{% block content %}
+
+<form method="get" action="{% url 'social:new_post' %}">
+    <button type="submit" class="btn btn-primary">New post</button>
+</form>
+
+{% if latest_post_list %}
+<ul>
+    {% for post in latest_post_list %}
+    <a href="{% url 'social:detail' post.id %}">{{ post.post_text }}</a><br>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No posts are available.</p>
+{% endif %}
+
+{% endblock %}
