@@ -1,0 +1,63 @@
+body {
+    background-color: rgb(248, 248, 248);
+}
+.container {
+    
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+}
+.navItem {
+    
+    text-align: left;
+    
+    padding: 0.2%; 
+    background-color:  #003366;
+    border-radius: 5px;
+    
+}
+img {
+    float: left;
+    height: 65px;
+    width: 100px;
+}
+
+.add {
+    margin-top: 10px;
+    padding-top: 25px;
+}
+.home {margin: 5px;}
+.message {margin: 5px;}
+.organisation {margin: 5px;}
+.notification {margin: 5px;}
+.settings {margin: 5px;} 
+.navButton {
+    box-shadow: 2px 2px 2px 2px rgba(46, 32, 128,0.1);
+    text-align: center;
+    display: inline-block; 
+    font-size: 14px;
+    
+    color:rgb(252, 252, 252);
+    background-color: transparent;
+    border: 1px solid rgb(252, 251, 251);
+    border-radius: 10px;
+    padding: 10px 10px;
+    text-decoration: none;
+    
+}
+.navButton:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.item {
+    box-shadow: 2px 2px 2px 2px rgba(85, 84, 85, 0.267);
+    height: 300px;
+    background-color: white;
+    padding-left: 50px;
+    border: 5x rgb(228, 228, 228) solid;
+    border-radius: 5px;
+}
+
+
+
