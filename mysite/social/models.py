@@ -43,7 +43,10 @@ class Post(models.Model):
 
 
 class ChatMessage(models.Model):
-    #chat =                                          # Foreign Key
-    orgUserId = models.ForeignKey(OrgUser, unique=False, null=True, on_delete=models.SET_NULL)                                  # Another foreign key to be added
+    orgUserId = models.ForeignKey(OrgUser, unique=False, null=True, on_delete=models.SET_NULL)
     message_text = models.CharField(max_length=500)
     timestamp = models.DateField()
+
+
+class Chat(models.Model):
+    chat_message = models.ForeignKey(ChatMessage, unique=False, null=True, on_delete=models.SET_NULL)
