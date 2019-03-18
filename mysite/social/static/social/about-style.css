@@ -1,0 +1,129 @@
+.tableContainer {
+  display: table;
+  border-spacing: 10px;
+
+}
+.tableRow {
+  display: table-row;
+
+}
+h1#mainTitle {
+  font-size: 250%;
+  color: white;
+  text-indent: 100px;
+  text-shadow: 3px 3px #102ec5
+
+}
+h1 {
+  font-size: 120%;
+  text-align: center;
+  color: #102ec5;
+}
+section#intro {
+  text-align: center;
+  padding-top:40px;
+}
+section#memberInfo {
+  display:table-cell;
+  font-size: 100%;
+  vertical-align: top;
+  width: 50%;
+  border-style:outset;
+}
+section#OrganisationInfo {
+  display: table-cell;
+  font-size: 100%;
+  width:50%;
+  vertical-align: top;
+    border-style:outset;
+}
+
+section#robertNixon{
+    display:table-cell;
+    padding-top:70px;
+    
+}
+section#alexGahan{
+    display:table-cell;
+    
+}
+section#lydiaRoss{
+      display:table-cell;
+}
+section#samCarty{
+    display:table-cell;
+}
+section#abelTom{
+    display:table-cell;
+}
+
+#robphoto{
+    display:block;
+    float:inherit;
+    width:150px;
+    border-style:inset;
+    border-width:4px;
+    height:150px;
+    
+}
+#alexphoto{
+    display:block;
+    width:150px;
+    border-style:inset;
+    border-width:4px;
+    height:150px;
+    
+}
+#lydiaphoto{
+    display:block;
+    width:150px;
+    border-style:inset;
+    border-width:4px;
+    height:150px;
+    
+}
+#samphoto{
+    display:block;
+    width:150px;
+    border-style:inset;
+    border-width:4px;
+    height:150px;
+    
+}
+#abelphoto{
+    display:block;
+    width:150px;
+    border-style:inset;
+    border-width:4px;
+    height:150px;
+}
+.jobTitles{
+    font-size:120%;
+    text-decoration-style: solid;
+    
+    
+}
+.jobDesc{
+    font-family: Georgia,Times,serif;
+    display:block;
+    position:static;
+    
+}
+.buttons{
+    
+    color:white;
+    border-radius:6px;
+     box-shadow: inset 2px 5px 2px darkblue;
+    cursor:pointer;
+    display:inline-block;
+    height: 20px;
+    width: 45px;
+    font-family:sans-serif;
+    font-size:15px;
+    padding:5px;
+    border: 1px solid black;
+    position:relative;
+}
+
+
+
