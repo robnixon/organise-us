@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Post
+from .models import Post, Org, OrgUser, ChatMessage, Chat
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -16,5 +16,8 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['pub_date']
     search_fields = ['post_text']
 
-
 admin.site.register(Post, PostAdmin)
+admin.site.register(Org)
+admin.site.register(OrgUser)
+admin.site.register(ChatMessage)
+admin.site.register(Chat)
