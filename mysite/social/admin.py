@@ -16,7 +16,6 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['pub_date']
     search_fields = ['post_text']
 
-
 admin.site.register(Post, PostAdmin)
 admin.site.register(Org)
 admin.site.register(OrgUser)
