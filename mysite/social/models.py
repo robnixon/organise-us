@@ -25,8 +25,7 @@ class Admin(models.Model):
 class OrgUser(models.Model):
     user_id = models.IntegerField(primary_key=True)
     member_status = models.IntegerField()  # E.g. 1 for current, 2 for inactive ...
-    organisations = models.CharField(
-        max_length=1000)  # Need to find better way to store list of orgs a member is part of.
+    organisations = models.ForeignKey(Org, unique=False, null=True, on_delete=models.CASCADE)
     payment = models.CharField(max_length=100)  # In prod app would be payment token or something.
 
 
@@ -43,10 +42,10 @@ class Post(models.Model):
 
 
 class ChatMessage(models.Model):
-    orgUserId = models.ForeignKey(OrgUser, unique=False, null=True, on_delete=models.SET_NULL)
+    org_user_id = models.ForeignKey(OrgUser, unique=False, null=True, on_delete=models.SET_NULL)
     message_text = models.CharField(max_length=500)
     timestamp = models.DateField()
 
 
 class Chat(models.Model):
-    chat_message = models.ForeignKey(ChatMessage, unique=False, null=True, on_delete=models.SET_NULL)
+    chat_messages = models.ForeignKey(ChatMessage, unique=False, null=True, on_delete=models.CASCADE)
