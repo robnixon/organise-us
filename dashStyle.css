@@ -1,124 +1,87 @@
-body {
-    background-color: rgb(248, 248, 248);
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+* {
+    box-sizing: border-box;
+    margin: 0;
 }
-.container {
-    
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr;
-    row-gap: 10px;
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background-color: #003366;
+    height:3.5em;
+    align-items: center;
+    color:rgb(252, 252, 252);
 }
-.navItem {
-    
-    text-align: left;
-    
-    padding: 0.2%; 
-    background-color:  #003366;
-    border-radius: 5px;
+nav ul li {
+    padding: 1em 2em;
+    font-family: 'Lato', sans-serif;
+    align-items: center;
     
 }
-img {
-    float: left;
-    height: 65px;
-    width: 100px;
+nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10%;
+}
+#logo {
+    height: 3.4em;
+    width: 5em;
     border-radius: 100%;
 }
-
-.add {
-    margin-top: 10px;
-    padding-top: 25px;
-}
-.home {margin: 5px;}
-.message {margin: 5px;}
-.organisation {margin: 5px;}
-.notification {margin: 5px;}
-.settings {margin: 5px;} 
-.navButton {
-    box-shadow: 2px 2px 2px 2px rgba(46, 32, 128,0.1);
-    text-align: center;
-    display: inline-block; 
-    font-size: 14px;
-    
-    color:rgb(252, 252, 252);
-    background-color: transparent;
-    border: 1px solid rgb(252, 251, 251);
-    border-radius: 10px;
-    padding: 10px 10px;
-    text-decoration: none;
-    
-}
-.navButton:hover {
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.2);
-}
-.item {
-    box-shadow: 2px 2px 2px 2px rgba(85, 84, 85, 0.267);
-    height: 300px;
-    background-color: white;
-    padding-left: 50px;
-    border: 5x rgb(228, 228, 228) solid;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+#offset {
+    padding-right: 3em;
 }
 
-.alternativeItem {
-    box-shadow: 2px 2px 2px 2px rgba(85, 84, 85, 0.267);
-    height: 300px;
-    
-    background-color: white;
-    padding-left: 50px;
-    border: 5x rgb(228, 228, 228) solid;
-    border-radius: 5px;
+.postsContainer {
     display: grid;
-    grid-template-columns: 100px 100px;
+    height: 100%;
+    grid-template-columns: 1fr;
     
-    grid-gap: 0px;
-    grid-template-areas: 
-        "pPic name"
-        "postTitle postTitle"
-        "description description"
-        "photos photos";
-
-        
-
-}
-.identification h1 {
-    font-size: 18px;
-    margin-bottom: 0px;
-}
-
-.item h2 {
-    font-size: 16px;
-    margin-top: 0px;
-}
-
-.pPic, #profilePic {
-    background: url(images/rob.jpg);
-    width: 50px;
-    height: 60px;
-    background-position: center;
-    background-size: cover;
-    border-radius: 30%;
     
 }
-.name{
-    font-size: 18px;
-    margin-bottom: 0px;
+.post {
+    border-style: solid;    
+    border-radius: 10%;
+    border-color: #ddd;
+    margin: 1em 18em;
+    padding: 1em 5em;
+    
 }
-.identification {
+.author {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    grid-gap:20px;
-}
-.postTitle { 
-    font-size: 10px;
-}
-
-.description {
     
+    justify-content: space-between;
+    
+}
+.authorPic {
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+}
+.authorName {
+    font-size: 1.3em;
+    font-family: 'Raleway', sans-serif;
+    
+}
+.authorID {
+    display:flex;
+}
+.postDate {
+    color: grey;
+    font-family: 'Raleway', sans-serif;
+}
+.content p {
+    font-family: 'Montserrat', sans-serif;
+}
+.photos {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: 100px;
+    grid-gap:0.1em;
+}
+.photos > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
