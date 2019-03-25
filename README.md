@@ -53,5 +53,4 @@ cd ..\organise-us\mysite
 python manage.py runserver
 ```
 
-8. In a web browser, go to http://127.0.0.1:8000/polls
-
+8. In a web browser, go to http://127.0.0.1:8000/
