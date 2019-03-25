@@ -1,3 +1,16 @@
 a {
     color: #003366;
 }
+
+.row {
+    width: 100%;
+}
+
+#nav ul {
+    list-style-type: none;
+}
+
+#nav ul li {
+    display: inline-block;
+    padding-top: 20px;
+}
