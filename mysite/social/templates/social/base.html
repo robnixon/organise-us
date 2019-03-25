@@ -29,7 +29,7 @@
                         <li><a href="{% url 'social:about' %}">About</a></li>
                         <li> | </li>
                         {% if user.is_authenticated %}
-                            <li><p>Logged in as: {{ request.user.username }}</p></li>
+                            <li><p>Logged in as: {{ request.user.username }} </p></li>
                             <li>
                                 <form method="get" action="{% url 'social:logout' %}">
                                     <button type="submit" class="btn btn-primary">Logout</button>
