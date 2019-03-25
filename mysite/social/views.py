@@ -20,9 +20,10 @@ class DetailView(generic.DetailView):
 
 class PostCreate(generic.CreateView):
     model = Post
-    fields = ['post_text', 'user']
+    fields = ['post_text']
 
     def get_form(self, form_class=None):
         form = super(PostCreate, self).get_form(form_class)
+        form.instance.user = self.request.user
         form.fields['post_text'].widget = forms.Textarea()
         return form
