@@ -1,4 +1,5 @@
 from django import forms
+from django.shortcuts import redirect
 from django.utils import timezone
 from django.views import generic
 from .models import Post
@@ -27,3 +28,7 @@ class PostCreate(generic.CreateView):
         form.instance.user = self.request.user
         form.fields['post_text'].widget = forms.Textarea()
         return form
+
+def redirect_view(request):
+    response = redirect('social/index')
+    return response

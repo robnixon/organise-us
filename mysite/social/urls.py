@@ -12,5 +12,5 @@ urlpatterns = [
     path('new/', views.PostCreate.as_view(), name="new_post"),
     path('about', TemplateView.as_view(template_name='social/aboutUs.html'), name='about'),
     url(r'^login/$', LoginView.as_view(template_name="social/login.html"), name='login'),
-    url(r'^logout/$', LogoutView.as_view, {'next_page': '/'}, name='logout'),
+    url(r'^logout/$', LogoutView.as_view(template_name="social/logout.html"), name='logout'),
 ]
