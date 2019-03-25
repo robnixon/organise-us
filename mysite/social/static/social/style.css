@@ -8,9 +8,15 @@ a {
 
 #nav ul {
     list-style-type: none;
+    float: right;
 }
 
 #nav ul li {
     display: inline-block;
     padding-top: 20px;
+}
+
+#nav ul li:nth-last-child(1), li:nth-last-child(2), li:nth-last-child(3) {
+    float: none;
+    display: inline-block;
 }

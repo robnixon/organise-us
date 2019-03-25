@@ -25,16 +25,15 @@
                                      style="max-width:200px"></a>
                 </div>
                 <div id="nav" class="col-md-9">
-                    <ul class = "align-middle">
+                    <ul>
                         <li><a href="{% url 'social:about' %}">About</a></li>
                         <li> | </li>
                         {% if user.is_authenticated %}
                             <li><p>Logged in as: {{ request.user.username }}</p></li>
-                            <li> | </li>
                             <li>
                                 <form method="get" action="{% url 'social:logout' %}">
-                                <button type="submit" class="btn btn-primary">Logout</button>
-                            </form>
+                                    <button type="submit" class="btn btn-primary">Logout</button>
+                                </form>
                             </li>
                         {% else %}
                         <li>
