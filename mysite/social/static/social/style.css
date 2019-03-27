@@ -25,3 +25,8 @@ a {
 .card {
     margin: 8px;
 }
+
+#profile-image {
+    width: 70px;
+    height: 70px;
+}

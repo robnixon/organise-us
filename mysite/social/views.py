@@ -1,7 +1,11 @@
 from django import forms
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect, render
 from django.utils import timezone
 from django.views import generic
+
+from .forms import SignUpForm
 from .models import Post
 
 
@@ -38,3 +42,20 @@ class PostCreate(LoginRequiredMixin, generic.CreateView):
             form.instance.user = self.request.user
             form.fields['post_text'].widget = forms.Textarea()
             return form
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.refresh_from_db()  # load the profile instance created by the signal
+            user.orguser.image = form.cleaned_data.get('image')
+            user.save()
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=user.username, password=raw_password)
+            login(request, user)
+            return redirect('social:index')
+    else:
+        form = SignUpForm()
+    return render(request, 'registration/signup.html', {'form': form})

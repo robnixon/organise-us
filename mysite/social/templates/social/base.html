@@ -25,6 +25,7 @@
                 </div>
                 <div id="nav" class="col-md-9">
                     <ul>
+                        {% if user.is_authenticated %}
                         <li class="nav-item"><a href="{% url 'social:index' %}">Home</a></li>
                         <li> | </li>
                         <li class="nav-item"><a href="{% url 'social:index' %}">Messages</a></li>
@@ -35,7 +36,6 @@
                         <li> | </li>
                         <li class="nav-item"><a href="{% url 'social:about' %}">About</a></li>
                         <li> | </li>
-                        {% if user.is_authenticated %}
                             <li><p>Logged in as: {{ request.user.username }}</p></li>
                             <li>
                                 <form method="get" action="{% url 'social:logout' %}">
@@ -43,9 +43,18 @@
                                 </form>
                             </li>
                         {% else %}
+                        <li class="nav-item"><a href="{% url 'social:index' %}">Home</a></li>
+                        <li> | </li>
+                        <li class="nav-item"><a href="{% url 'social:about' %}">About</a></li>
+                        <li> | </li>
                         <li>
                             <form method="get" action="{% url 'social:login' %}">
-                                <button type="submit" class="btn btn-light">Login</button>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form method="get" action="{% url 'social:signup' %}">
+                                <button type="submit" class="btn btn-primary">Register</button>
                             </form>
                         </li>
                         {% endif %}
