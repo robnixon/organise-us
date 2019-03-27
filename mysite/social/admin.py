@@ -22,32 +22,29 @@ class OrgDjangoAdmin(admin.ModelAdmin):
     ]
 
     list_display = ('name', 'address')
-    list_filter = ['name']
     search_fields = ['name']
 
 
 class OrgUserDjangoAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['user_id', 'member_status', 'organisations', 'payment']}),
+        (None, {'fields': ['user', 'image', 'member_status', 'organisations', 'payment']}),
     ]
 
-    readonly_fields = ('user_id',)
-
-    list_display = ('user_id', 'member_status')
-    list_filter = ['member_status', 'organisations']
-    search_fields = ['user_id', 'organisations']
+    list_display = ('user', 'member_status', 'organisations')
+    list_filter = ['member_status']
+    search_fields = ['user', 'organisations']
 
 
 class ChatMessageDjangoAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['org_user_id', 'message_text', 'timestamp']}),
+        (None, {'fields': ['user', 'message_text', 'timestamp']}),
     ]
 
     readonly_fields = ('timestamp',)
 
-    list_display = ('org_user_id',)
+    list_display = ('user',)
     list_filter = ['timestamp']
-    search_fields = ['org_user_id', 'message_text']
+    search_fields = ['user', 'message_text']
 
 
 class ChatDjangoAdmin(admin.ModelAdmin):

@@ -14,9 +14,14 @@ a {
 #nav ul li {
     display: inline-block;
     padding-top: 20px;
+    margin-right: 3px;
 }
 
 #nav ul li:nth-last-child(1), li:nth-last-child(2), li:nth-last-child(3) {
     float: none;
     display: inline-block;
+}
+
+.card {
+    margin: 8px;
 }

@@ -1,18 +1,25 @@
 {% extends 'social/base.html' %}
 {% block content %}
 
-<form method="get" action="{% url 'social:new_post' %}">
-    <button type="submit" class="btn btn-primary">New post</button>
-</form>
+{% if user.is_authenticated %}
+    <form method="get" action="{% url 'social:new_post' %}">
+        <button type="submit" class="btn btn-primary">New post</button>
+    </form>
 
-{% if latest_post_list %}
-<ul>
-    {% for post in latest_post_list %}
-    <a href="{% url 'social:detail' post.id %}">{{ post.post_text }}</a><br>
-    {% endfor %}
-</ul>
+    {% if latest_post_list %}
+    <ul>
+        {% for post in latest_post_list %}
+        <div class="card">
+            <div class="card-body lead">{{ post.post_text }}</div>
+            <div class="card-footer text-muted"><p class="float-right"><em>Posted by <strong>{{post.user.username}}</strong> on {{post.pub_date|date:"j F, Y - H:i"}}</em></p></div>
+        </div>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No posts are available.</p>
+    {% endif %}
 {% else %}
-<p>No posts are available.</p>
+    <p>Please login to view this page.</p>
 {% endif %}
 
 {% endblock %}
