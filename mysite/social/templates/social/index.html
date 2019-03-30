@@ -2,6 +2,7 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+    <h1>Posts in your organisation, {{ request.user.orguser.organisation.name }}.</h1>
     <form method="get" action="{% url 'social:new_post' %}">
         <button type="submit" class="btn btn-primary">New post</button>
     </form>
@@ -9,17 +10,19 @@
     {% if latest_post_list %}
     <ul>
         {% for post in latest_post_list %}
-        <div class="card">
-            <div class="card-header">
-                <p class="float-left"><img id="profile-image" alt="User profile image" src="{{post.user.orguser.image}}"/>
-                    <em>Posted by <strong>{{post.user.username}}</strong> on {{post.pub_date|date:"j F, Y - H:i"}}</em></p>
+        {% if post.organisation == request.user.orguser.organisation %}
+            <div class="card">
+                <div class="card-header">
+                    <p class="float-left"><img id="profile-image" alt="User profile image" src="{{post.user.orguser.image}}"/>
+                        <em>Posted by <strong>{{post.user.username}}</strong> on {{post.pub_date|date:"j F, Y - H:i"}}</em></p>
+                </div>
+                <div class="card-body lead">{{ post.post_text }}</div>
             </div>
-            <div class="card-body lead">{{ post.post_text }}</div>
-        </div>
+        {% endif %}
         {% endfor %}
     </ul>
     {% else %}
-    <p>No posts are available.</p>
+    <p>No posts are available from your organisation.</p>
     {% endif %}
 {% else %}
     <main role="main" class="inner cover">

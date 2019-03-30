@@ -1,12 +1,12 @@
 from django import forms
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.utils import timezone
 from django.views import generic
 
 from .forms import SignUpForm
-from .models import Post
+from .models import Post, Org
 
 
 class IndexView(generic.ListView):
@@ -16,6 +16,15 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         """Return the list of posts."""
         return Post.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
+
+
+class OrganisationView(generic.ListView):
+    template_name = 'social/organisations.html'
+    context_object_name = 'organisation_list'
+
+    def get_queryset(self):
+        """Return the list of organisations"""
+        return Org.objects.all()
 
 
 class DashboardView(generic.ListView):
@@ -40,7 +49,8 @@ class PostCreate(LoginRequiredMixin, generic.CreateView):
         if self.request.user.is_authenticated:
             form = super(PostCreate, self).get_form(form_class)
             form.instance.user = self.request.user
-            form.fields['post_text'].widget = forms.Textarea()
+            form.instance.organisation = self.request.user.orguser.organisation
+            form.fields['post_text'].widget = forms.Textarea({'rows': 8, 'cols': 50})
             return form
 
 
@@ -59,3 +69,11 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+def update_org(request, org):
+    org = get_object_or_404(Org, pk=org)
+    if request.method == 'POST':
+        request.user.orguser.organisation = org
+        request.user.save()
+    return redirect('social:index')

@@ -5,15 +5,15 @@ from .models import Post, Org, OrgUser, ChatMessage, Chat
 
 class PostDjangoAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['post_text', 'user']}),
+        (None, {'fields': ['post_text', 'user', 'organisation']}),
         ('Date information', {'fields': ['pub_date']}),
     ]
 
     readonly_fields = ('pub_date',)
 
-    list_display = ('post_text', 'pub_date')
+    list_display = ('post_text', 'pub_date', 'organisation')
     list_filter = ['pub_date']
-    search_fields = ['post_text']
+    search_fields = ['post_text, organisation']
 
 
 class OrgDjangoAdmin(admin.ModelAdmin):
@@ -27,12 +27,12 @@ class OrgDjangoAdmin(admin.ModelAdmin):
 
 class OrgUserDjangoAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['user', 'image', 'member_status', 'organisations', 'payment']}),
+        (None, {'fields': ['user', 'image', 'member_status', 'organisation', 'payment']}),
     ]
 
-    list_display = ('user', 'member_status', 'organisations')
+    list_display = ('user', 'member_status', 'organisation')
     list_filter = ['member_status']
-    search_fields = ['user', 'organisations']
+    search_fields = ['user', 'organisation']
 
 
 class ChatMessageDjangoAdmin(admin.ModelAdmin):

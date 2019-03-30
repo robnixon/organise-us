@@ -1,0 +1,36 @@
+{% extends 'social/base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    <h1>All organisations</h1>
+
+    {% if organisation_list %}
+    <ul>
+        {% for org in organisation_list %}
+            <div class="card">
+                <div class="card-body lead">{{ org.name }}
+                {% if request.user.orguser.organisation != org %}
+                    <form method="POST" action="{% url 'social:update_org' org.id %}">{% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Join</button>
+                    </form>
+                {% else %}
+
+                {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No organisations registered.</p>
+    {% endif %}
+{% else %}
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">Welcome to OrganiseUs.</h1>
+        <p class="lead">Login to view your profile or register for a new account.</p>
+        <p class="lead">
+            <a href="{% url 'social:login' %}#" class="btn btn-lg btn-secondary">Login</a>
+            <a href="{% url 'social:signup' %}" class="btn btn-lg btn-secondary">Register</a>
+        </p>
+    </main>
+{% endif %}
+{% endblock %}

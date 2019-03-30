@@ -10,10 +10,7 @@ class Org(models.Model):
     name = models.CharField(max_length=500)
     description = models.CharField(max_length=5000)
     picture = models.CharField(max_length=500)  # Link to hosted image
-    address = models.CharField(max_length=500, primary_key=True)
-
-    class Meta:
-        unique_together = (('picture', 'address'),)
+    address = models.CharField(max_length=500)
 
 
 class Admin(models.Model):
@@ -27,9 +24,9 @@ class Admin(models.Model):
 class OrgUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.CharField(max_length=100)  # url to user profile image.
-    member_status = models.IntegerField(null=True)  # E.g. 1 for current, 2 for inactive ...
-    organisations = models.ForeignKey(Org, unique=False, null=True, on_delete=models.CASCADE)
-    payment = models.CharField(max_length=100)  # In prod app would be payment token or something.
+    member_status = models.IntegerField(blank=True, null=True)  # E.g. 1 for current, 2 for inactive ...
+    organisation = models.ForeignKey(Org, unique=False, blank=True, null=True, on_delete=models.CASCADE)
+    payment = models.CharField(max_length=100, blank=True, null=True)  # In prod app would be payment token or something.
 
     @receiver(post_save, sender=User)
     def create_org_user(sender, instance, created, **kwargs):
@@ -48,6 +45,7 @@ class Post(models.Model):
     post_text = models.CharField(max_length=2000)
     user = models.ForeignKey(User, unique=False, null=True, on_delete=models.SET_NULL)
     pub_date = models.DateTimeField('date published', default=timezone.now, editable=False)
+    organisation = models.ForeignKey(Org, unique=False, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse('social:detail', kwargs={'pk': self.pk})
