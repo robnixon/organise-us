@@ -8,14 +8,15 @@
     <ul>
         {% for org in organisation_list %}
             <div class="card">
-                <div class="card-body lead">{{ org.name }}
-                {% if request.user.orguser.organisation != org %}
-                    <form method="POST" action="{% url 'social:update_org' org.id %}">{% csrf_token %}
-                        <button type="submit" class="btn btn-primary">Join</button>
-                    </form>
-                {% else %}
+                <div class="card-body lead">
+                    <p>{{ org.name }}</p>
+                    {% if request.user.orguser.organisation != org %}
+                        <form method="POST" action="{% url 'social:update_org' org.id %}">{% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Join</button>
+                        </form>
+                    {% else %}
 
-                {% endif %}
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
