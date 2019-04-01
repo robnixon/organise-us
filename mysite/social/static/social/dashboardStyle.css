@@ -10,7 +10,7 @@ nav ul {
     justify-content: space-between;
     list-style: none;
     background-color: #003366;
-    height:3.5em;
+    height:auto;
     align-items: center;
     color:rgb(252, 252, 252);
 }
@@ -37,6 +37,8 @@ nav ul li:hover {
     display: grid;
     height: 100%;
     grid-template-columns: 1fr;
+    
+    
 }
 .post {
     border-style: solid;    
@@ -44,10 +46,13 @@ nav ul li:hover {
     border-color: #ddd;
     margin: 1em 18em;
     padding: 1em 5em;
+    
 }
 .author {
     display: flex;
+    
     justify-content: space-between;
+    
 }
 .authorPic {
     width: 3em;
@@ -72,11 +77,28 @@ nav ul li:hover {
 .photos {
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-auto-rows: 100px;
+    grid-auto-rows: 200px;
     grid-gap:0.1em;
 }
 .photos > img {
     object-fit: cover;
     width: 100%;
     height: 100%;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+    .author {
+        flex-direction: column;
+    }
+    .post {
+        border-style: solid;    
+        border-radius: 10%;
+        border-color: #ddd;
+        margin: 1em;
+        padding: 1em;
+        
+    }
 }
