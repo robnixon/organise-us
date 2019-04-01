@@ -2,10 +2,11 @@
 {% block content %}
 
 <h1>New post</h1>
+<p>Posting to organisation: {{ request.user.orguser.organisation.name }}</p>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {% include 'social/form_template.html' %}
-    <button type="submit">Post</button>
+    <button type="submit" class="btn btn-primary" style="margin-top: 8px;">Post</button>
 </form>
 
 {% endblock %}

@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background-color: #003366;
+    height:auto;
+    align-items: center;
+    color:rgb(252, 252, 252);
+}
+nav ul li {
+    padding: 1em 2em;
+    font-family: 'Lato', sans-serif;
+    align-items: center;
+    
+}
+nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10%;
+}
+#logo {
+    height: 3.4em;
+    width: 5em;
+    border-radius: 100%;
+}
+#offset {
+    padding-right: 3em;
+}
+
+.postsContainer {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr;
+    
+    
+}
+.post {
+    border-style: solid;    
+    border-radius: 10%;
+    border-color: #ddd;
+    margin: 1em 18em;
+    padding: 1em 5em;
+    
+}
+.author {
+    display: flex;
+    
+    justify-content: space-between;
+    
+}
+.authorPic {
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+}
+.authorName {
+    font-size: 1.3em;
+    font-family: 'Raleway', sans-serif;
+    
+}
+.authorID {
+    display:flex;
+}
+.postDate {
+    color: grey;
+    font-family: 'Raleway', sans-serif;
+}
+.content p {
+    font-family: 'Montserrat', sans-serif;
+}
+.photos {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: 200px;
+    grid-gap:0.1em;
+}
+.photos > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+    .author {
+        flex-direction: column;
+    }
+    .post {
+        border-style: solid;    
+        border-radius: 10%;
+        border-color: #ddd;
+        margin: 1em;
+        padding: 1em;
+        
+    }
+}

@@ -16,29 +16,46 @@
 </head>
 
 <body>
-<div class="page-header">
+<header class="page-header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="content container">
             <div class="row">
-                <div class="col-md-3">
-                    <a href="/"><img src="{% static 'social/images/logo-transparent-light.png' %}" alt="Organise Us"
-                                     style="max-width:200px"></a>
+                <div class="col-md-2">
+                    <a href="{% url 'social:index' %}"><img src="{% static 'social/images/logo-transparent-light.png' %}" alt="Organise Us" style="width:200px"></a>
                 </div>
-                <div id="nav" class="col-md-9">
+                <div id="nav" class="col-md-10">
                     <ul>
-                        <li><a href="{% url 'social:about' %}">About</a></li>
-                        <li> | </li>
                         {% if user.is_authenticated %}
-                            <li><p>Logged in as: {{ request.user.username }} </p></li>
+                        <li class="nav-item"><a href="{% url 'social:index' %}">Home</a></li>
+                        <li> | </li>
+                        <li class="nav-item"><a href="#" onClick="alert('Not yet implemented!')">Messages</a></li>
+                        <li> | </li>
+                        <li class="nav-item"><a href="{% url 'social:organisations' %}">Organisations</a></li>
+                        <li> | </li>
+                        <li class="nav-item"><a href="#" onClick="alert('Not yet implemented!')">Notifications</a></li>
+                        <li> | </li>
+                        <li class="nav-item"><a href="{% url 'social:about' %}">About</a></li>
+                        <li> | </li>
+                            <li><p>Logged in as: {{ request.user.username }}</p></li>
+                            <li><img id="profile-image" alt="User profile image" src="{{user.orguser.image}}" style="width: 30px; height: 30px;"/></li>
                             <li>
                                 <form method="get" action="{% url 'social:logout' %}">
                                     <button type="submit" class="btn btn-primary">Logout</button>
                                 </form>
                             </li>
                         {% else %}
+                        <li class="nav-item"><a href="{% url 'social:index' %}">Home</a></li>
+                        <li> | </li>
+                        <li class="nav-item"><a href="{% url 'social:about' %}">About</a></li>
+                        <li> | </li>
                         <li>
-                            <form method="get" action="{% url 'social:login' %}">
+                            <form method="GET" action="{% url 'social:login' %}">
                                 <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form method="GET" action="{% url 'social:signup' %}">
+                                <button type="submit" class="btn btn-primary">Register</button>
                             </form>
                         </li>
                         {% endif %}
@@ -47,7 +64,7 @@
             </div>
         </div>
     </nav>
-</div>
+</header>
 
 <div class="content container" style="margin-top: 28px">
     <div class="row">
