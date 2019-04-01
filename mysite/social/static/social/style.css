@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 a {
     color: #003366;
 }
@@ -29,4 +33,45 @@ a {
 #profile-image {
     width: 70px;
     height: 70px;
+}
+
+
+
+.post {
+    width: 80%;
+    margin: 20px auto;
+    border-style: solid;
+    border-radius: 30px;
+    border-color: #ddd;
+    padding: 1em 5em;
+}
+
+.author {
+    display: flex;
+    justify-content: space-between;
+}
+
+.authorPic {
+    width: 3em;
+    height: 3em;
+    border-radius: 100%;
+}
+
+.authorName {
+    font-size: 1.3em;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+.authorID {
+    display: flex;
+}
+
+.postDate {
+    color: grey;
+    font-family: 'Raleway', sans-serif;
+}
+
+.content p {
+    font-family: 'Montserrat', sans-serif;
 }

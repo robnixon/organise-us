@@ -11,13 +11,20 @@
     <ul>
         {% for post in latest_post_list %}
         {% if post.organisation == request.user.orguser.organisation %}
-            <div class="card">
-                <div class="card-header">
-                    <p class="float-left"><img id="profile-image" alt="User profile image" src="{{post.user.orguser.image}}"/>
-                        <em>Posted by <strong>{{post.user.username}}</strong> on {{post.pub_date|date:"j F, Y - H:i"}}</em></p>
-                </div>
-                <div class="card-body lead">{{ post.post_text }}</div>
-            </div>
+            <section class="post">
+                <section class="author">
+                    <section class="authorID">
+                        <img class="authorPic" src="{{post.user.orguser.image}}">
+                        <h2 class="authorName">{{post.user.username}}</h2>
+                    </section>
+                    <p class="postDate">{{post.pub_date|date:"j F, Y - H:i"}}</p>
+                </section>
+                <section class="content">
+                    <p>
+                        {{ post.post_text }}
+                    </p>
+                </section>
+            </section>
         {% endif %}
         {% endfor %}
     </ul>
