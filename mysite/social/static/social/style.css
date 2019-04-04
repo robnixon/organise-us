@@ -37,6 +37,23 @@ a {
 
 
 
+nav {
+    background-color: #003366;
+    color: white;
+}
+
+
+#nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 20px 6px 20px 6px;
+}
+
+#nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
 .post {
     width: 80%;
     margin: 20px auto;
